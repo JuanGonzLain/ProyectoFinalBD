@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MiPerfil from './perfil.jsx'
-// import EstudiantesActivos  from './EstudiantesActivos'
-// import RiesgoAcademico     from './RiesgoAcademico'
-// import Homologaciones      from './Homologaciones'
-// import Reportes             from './Reportes'
-// import GruposYCupos        from './GruposYCupos'
-// import NotasYAsignaturas   from './NotasYAsignaturas'
+import EstudiantesActivos  from './EstudiantesActivos'
+import RiesgoAcademico from './RiesgoAcademico'
+import Homologaciones from './homologaciones.jsx'
+//import Reportes from './Reportes'
+import GruposYCupos from './gruposYCupos.jsx'
+import NotasYAsignaturas from './notasYAsignaturas.jsx'
 
 // Diccionario de títulos dinámicos para la barra superior según la vista activa, recupera los valores de la base de datos para mostrar 
 // el título correcto en la barra superior del dashboard del coordinador,
@@ -204,7 +204,12 @@ export default function DashboardCoordinador() { //función principal del dashbo
     reportes:      <Reportes />,
     grupos:        <GruposYCupos />,
     notas:         <NotasYAsignaturas />,
+    perfil:        <MiPerfil />
   }
+
+  // Placeholders temporales — reemplazar con los archivos reales al crearlos
+function Reportes()            { return <div style={ph}>Reportes académicos — próximamente</div> }
+const ph = { display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#999', fontSize: 16 }
 
   return (
     <div style={s.db}>
@@ -232,7 +237,7 @@ export default function DashboardCoordinador() { //función principal del dashbo
           <div style={s.sbSection}>Programa</div>
           <NavItem icon="ti-users"            label="Estudiantes"        vista="estudiantes"    actual={vista} setVista={setVista} />
           <NavItem icon="ti-alert-triangle"   label="Riesgo académico"   vista="riesgo"         actual={vista} setVista={setVista} />
-          <NavItem icon="ti-books"            label="Notas y asignaturas"vista="notes"          actual={vista} setVista={setVista} />
+          <NavItem icon="ti-books"            label="Notas y asignaturas"vista="notas"          actual={vista} setVista={setVista} />
           <NavItem icon="ti-layout-grid"      label="Grupos y cupos"     vista="grupos"         actual={vista} setVista={setVista} />
           
           <div style={s.sbSection}>Gestión</div>
